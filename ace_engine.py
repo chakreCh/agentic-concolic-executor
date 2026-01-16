@@ -13,11 +13,6 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 if not GOOGLE_API_KEY:
     raise ValueError("API Key not found! Make sure you created the .env file.")
-# ==========================================
-# CONFIGURATION
-# ==========================================
-# 🚨 PASTE YOUR API KEY HERE 🚨
-#GOOGLE_API_KEY = "AIzaSyBOGEMXoQtdhvPwIX2nWum8Oas6ZcxI37k"
 
 # ==========================================
 # 1. THE TRACER
@@ -79,7 +74,7 @@ class AgenticReasoner:
         """
 
         try:
-            print("🤖 Agent is thinking...")
+            print("Agent is thinking...")
             response = self.client.models.generate_content(
                 model=self.model_name,
                 contents=prompt,
@@ -89,14 +84,14 @@ class AgenticReasoner:
             )
             return json.loads(response.text)
         except Exception as e:
-            print(f"⚠️ API Warning: {e}")
+            print(f"API Warning: {e}")
             return {"x": 0, "y": 0, "reasoning": "Error - Retrying"}
 
 # ==========================================
 # 4. THE ORCHESTRATOR
 # ==========================================
 def run_engine():
-    print("🚀 Starting ACE Engine (Using 'gemini-flash-latest')...")
+    print("Starting ACE Engine (Using 'gemini-flash-latest')...")
     
     tracer = ExecutionTracer()
     agent = AgenticReasoner(GOOGLE_API_KEY)
@@ -114,21 +109,21 @@ def run_engine():
         # 2. Check
         trace_str = str(tracer.get_trace())
         if result == "BUG_FOUND":
-            print(f"🎉 SUCCESS! Found the bug with inputs: {inputs}")
+            print(f"SUCCESS! Found the bug with inputs: {inputs}")
             break
             
         if trace_str not in covered_paths:
-            print(f"✨ New Path: {result}")
+            print(f"New Path: {result}")
             covered_paths.add(trace_str)
         else:
-            print(f"🔁 Duplicate path.")
+            print(f"Duplicate path.")
 
         # 3. Ask AI
         new_plan = agent.propose_new_inputs(inputs, tracer.get_trace(), covered_paths)
         
         # 4. Update
         inputs = {"x": new_plan['x'], "y": new_plan['y']}
-        print(f"🧠 Reasoning: {new_plan.get('reasoning')}")
+        print(f"Reasoning: {new_plan.get('reasoning')}")
         
         # Polite wait
         time.sleep(5)
