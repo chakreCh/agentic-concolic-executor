@@ -6,7 +6,7 @@ import time
 # CONFIGURATION
 # ==========================================
 # 🚨 PASTE YOUR API KEY HERE 🚨
-GOOGLE_API_KEY = "AIzaSyBkh1lY0IM63I_TMBavBJBUvIr3kQXepvc"
+GOOGLE_API_KEY = "AIzaSyBOGEMXoQtdhvPwIX2nWum8Oas6ZcxI37k"
 
 # ==========================================
 # 1. THE TRACER
