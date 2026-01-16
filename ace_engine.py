@@ -1,12 +1,23 @@
 from google import genai
 import json
 import time
+import os
+from dotenv import load_dotenv
+from google import genai
 
+# Load the secret .env file
+load_dotenv()
+
+# Get the key securely
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+if not GOOGLE_API_KEY:
+    raise ValueError("API Key not found! Make sure you created the .env file.")
 # ==========================================
 # CONFIGURATION
 # ==========================================
 # 🚨 PASTE YOUR API KEY HERE 🚨
-GOOGLE_API_KEY = "AIzaSyBOGEMXoQtdhvPwIX2nWum8Oas6ZcxI37k"
+#GOOGLE_API_KEY = "AIzaSyBOGEMXoQtdhvPwIX2nWum8Oas6ZcxI37k"
 
 # ==========================================
 # 1. THE TRACER
