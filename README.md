@@ -56,7 +56,7 @@ py ace_engine.py
 
 ### 5. View Results
 <details>
-  <summary> <strong>Click to see the Agentic Concolic Executor in action</strong></summary>
+  <summary> <strong>Click to see the Agentic Concolic Executor results</strong></summary>
   <br>
   
   <p align="center">
@@ -65,7 +65,7 @@ py ace_engine.py
   </p>
   
   <p align="center">
-    <em>Left: The agent tracing the execution path. Right: The agent successfully finding the target bug.</em>
+    <em>Left: First trial result. Right: Second trial result.</em>
   </p>
 </details>
 
