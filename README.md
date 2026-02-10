@@ -52,6 +52,26 @@ GOOGLE_API_KEY=your_actual_key_here
 py ace_engine.py
 ```
 
+<br>
+
+### 5. View Results
+<details>
+  <summary> <strong>Click to see the Agentic Concolic Executor in action</strong></summary>
+  <br>
+  
+  <p align="center">
+    <img src="screenshots/result_1.png" alt="Execution Log" width="45%" />
+    <img src="screenshots/result_2.png" alt="Execution Log" width="45%" /> 
+  </p>
+  
+  <p align="center">
+    <em>Left: The agent tracing the execution path. Right: The agent successfully finding the target bug.</em>
+  </p>
+</details>
+
+<br>
+
+
 **Engineering Challenges Solved**
 1. **API Rate Limiting:** Implemented an exponential backoff strategy to handle cloud API quotas without crashing the test loop.
 
